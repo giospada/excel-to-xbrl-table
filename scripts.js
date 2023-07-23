@@ -203,43 +203,8 @@ function main() {
   }
   $('#copy').on('click', copyClipboard);
   pageOne();
-  pageTwo();
 }
 
-const a = "Numeric	Numeric-2	Numeric-Suffix \n" +
-  "1	1	1st \n" +
-  "2	2	2nd \n" +
-  "3	3	3rd \n" +
-  "4	4	4th \n" +
-  "5	5	5th \n" +
-  "6	6	6th \n" +
-  "7	7	7th \n" +
-  "8	8	8th \n" +
-  "9	9	9th \n" +
-  "10	10	10th \n" +
-  "11	11	11th \n" +
-  "12	12	12th \n" +
-  "13	13	13th \n" +
-  "14	14	14th \n" +
-  "15	15	15th \n" +
-  "16	16	16th \n" +
-  "17	17	17th \n" +
-  "18	18	18th \n" +
-  "19	19	19th \n" +
-  "20	20	20th \n" +
-  "21	21	21st \n" +
-  "22	22	22nd \n" +
-  "23	23	23rd \n" +
-  "24	24	24th \n" +
-  "25	25	25th \n" +
-  "26	26	26th \n" +
-  "27	27	27th \n" +
-  "28	28	28th \n" +
-  "29	29	29th \n" +
-  "30	30	30th \n" +
-  "31	31	31st \n";
-
-$("#parseTable").val(a);
 
 main()
   
