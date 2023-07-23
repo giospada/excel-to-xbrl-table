@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="bootstrap.min.css" rel="stylesheet" />
+  <style>
+    .selectArea {
+      border: 1px dashed red;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <button id="previusPage" class='btn btn-primary'>
+        Previus</button>
+      <div class='d-flex flex-column'>
+        <h1 id="currentTitle">Loading...</h1>
+      </div>
+      <button id="nextPage" class='btn btn-primary'> Next</button>
+    </div>
+  </nav>
+
+  <!-- <div hidden> -->
+  <!--   <div id='hiddenTable'> -->
+  <!--   </div> -->
+  <!-- </div> -->
+
+  <div id='secondPage' class="container my-5 ">
+    <div class='row'>
+      <div class='col'
+        style='height: 50vh; overflow:scroll; border: 2px solid gray; border-radius: 3px; padding: 0.5rem;'>
+        <div id='containTable'></div>
+      </div>
+      <div class='col'>
+
+        <div class='d-flex justify-content-center align-items-center flex-column my-5'>
+          <h4>Copy</h4>
+          <button id='copy' class='btn btn-primary'>Copy</button>
+
+          <details class='mb-5'>
+            <summary> Se non funziona ecco il html
+            </summary>
+            <textarea id='copyarea'></textarea>
+          </details>
+
+          <h4>Template</h4>
+          <div class='d-flex gap-1 mb-5'>
+            <button id='setBorder' class='btn btn-primary'>
+              Border
+            </button>
+          </div>
+
+          <h4>Multiple Select</h4>
+          <div class='d-flex gap-2 mb-2'>
+            <div class='btn-group'>
+              <button id='setLeft' class='btn btn-primary'>
+                Left
+              </button>
+              <button id='setCenter' class='btn btn-primary'>
+                Center
+              </button>
+              <button id='setRight' class='btn btn-primary'>
+                Right
+              </button>
+            </div>
+          </div>
+          <button id='setBold' class='btn btn-primary'>
+            Bold
+          </button>
+          <div class='d-flex gap-1 my-2'>
+            <button class='btn btn-primary' id='setBg'>
+              Color
+            </button>
+            <input type='color' id='colorBG' />
+          </div>
+          <div class='d-flex gap-1 my-2'>
+            <div class='btn-group'>
+              <button id='setH5' class='btn btn-primary'>
+                H5
+              </button>
+              <button id='setH4' class='btn btn-primary'>
+                H4
+              </button>
+              <button id='setH3' class='btn btn-primary'>
+                H3
+              </button>
+              <button id='setH2' class='btn btn-primary'>
+                H2
+              </button>
+              <button id='setH1' class='btn btn-primary'>
+                H1
+              </button>
+            </div>
+            <button id='setUnFormat' class='btn btn-primary'>
+              UnFormat
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id='firstPage' class="container my-5">
+        <textarea class="form-control" placeholder="Incolla qui la tabella" id="parseTable"
+          style="min-height: 300px;max-height:50vh;"></textarea>
+
+      </div>
+      <div class='container bg-gray'>
+        <span>Copyright (c) 2023 Giovanni Spadaccini</span>
+      </div>
+
+      <script src="bootstrap.bundle.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+      <script src='scripts.js'></script>
+      <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="copied" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            Avviso
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            Copiato nella clipboard
+          </div>
+        </div>
+      </div>
+</body>
+
+</html>
