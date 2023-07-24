@@ -70,6 +70,17 @@ function setSelect(e,i,j){
     applayToSelect((e)=>{
         e.className='selectArea'
     })
+    $('#widthinp').val(getSelectElement().clientWidth)
+    $('#heightinp').val(getSelectElement().clientHeight)
+}
+
+function getSelectElement(){
+    if(!selectArea.thereIsSelection()){
+        return
+    }
+    const btable=$('tbody')[0].children;
+    const row=btable[selectArea.selectRow].children;
+    return row[selectArea.selectCol];
 }
 
 function addTdEvent(){
@@ -111,16 +122,16 @@ function setTitle(title, percentual) {
 
 function pageOne() {
   setTitle('Incollare La Tabella Da Excel')
-  $('#previusPage').addClass('disabled');
-  $('#nextPage').removeClass('disabled');
+  $('#previusPage').hide()
+  $('#nextPage').show()
   $('#firstPage').show();
   $('#secondPage').hide();
 }
 
 function pageTwo() {
     setTitle('Modificare La Tabella')
-    $('#nextPage').addClass('disabled');
-    $('#previusPage').removeClass('disabled');
+    $('#nextPage').hide()
+    $('#previusPage').show()
     $('#firstPage').hide();
     $('#secondPage').show();
     const table = createTable()
@@ -154,7 +165,6 @@ function remAttr(ele,map){
 
 function addBorder() {
     const ele =$('table');
-    console.log(ele[0]['border'])
     if(ele[0]['border']=='')
         addAttr(ele,{'border':'1','cellspacing': '0'});
     else
@@ -184,12 +194,28 @@ function delWrappingEle(ele){
     }
     return ele.innerHTML;
 }
+function setLayout(){
+    $('table')[0]['border']='';
+    addBorder()
+    const btable=$('tbody')[0].children;
+    const lastRow=btable.length;
+    setSelect({shiftKey:false},0,0)
+    setSelect({shiftKey:true},lastRow,0)
+    applayToSelect((e)=>e.setAttribute('bgcolor',$('#colorBG').val()))
+    setSelect({shiftKey:false},lastRow-1,0)
+    setSelect({shiftKey:true},lastRow,btable[lastRow-1].children.length)
+    applayToSelect((e)=>addWrappingEle(e,'b'))
+    setSelect({shiftKey:false},0,0)
+    setSelect({shiftKey:true},0,btable[0].children.length)
+    applayToSelect((e)=>e.setAttribute('bgcolor',$('#colorBG').val()))
+}
 
 
 function main() {
   $('#previusPage').on('click', pageOne);
   $('#nextPage').on('click', pageTwo);
   $('#setBorder').on('click', addBorder);
+  $('#setLayout').on('click', setLayout);
   $('#setRight').on('click', ()=>applayToSelect((e)=>e.setAttribute('align','right')));
   $('#setCenter').on('click', ()=>applayToSelect((e)=>e.setAttribute('align','center')));
   $('#setLeft').on('click', ()=>applayToSelect((e)=>e.setAttribute('align','left')));
@@ -202,6 +228,9 @@ function main() {
 
   }
   $('#copy').on('click', copyClipboard);
+  $('#heightbtn').on('click', ()=>applayToSelect((e)=>e.setAttribute('height',$('#heightinp').val())));
+  $('#widthbtn').on('click', ()=>applayToSelect((e)=>e.setAttribute('width',$('#widthinp').val())));
+
   pageOne();
 }
 
