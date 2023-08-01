@@ -209,6 +209,10 @@ function setLayout(){
     setSelect({shiftKey:false},0,0)
     setSelect({shiftKey:true},0,btable[0].children.length)
     applayToSelect((e)=>e.setAttribute('bgcolor',$('#colorBG').val()))
+    applayToSelect((e)=>e.setAttribute('align','center'));
+    setSelect({shiftKey:false},1,1)
+    setSelect({shiftKey:true},lastRow,btable[lastRow-1].children.length)
+    applayToSelect((e)=>e.setAttribute('align','right'));
 }
 
 
@@ -219,7 +223,6 @@ function main() {
   $('#setLayout').on('click', setLayout);
   $('#setRight').on('click', ()=>applayToSelect((e)=>e.setAttribute('align','right')));
   $('#setCenter').on('click', ()=>applayToSelect((e)=>e.setAttribute('align','center')));
-  $('#setLeft').on('click', ()=>applayToSelect((e)=>e.setAttribute('align','left')));
   $('#setLeft').on('click', ()=>applayToSelect((e)=>e.setAttribute('align','left')));
   $('#setBg').on('click', ()=>applayToSelect((e)=>e.setAttribute('bgcolor',$('#colorBG').val())));
   $('#setBold').on('click', ()=>applayToSelect((e)=>addWrappingEle(e,'b')));
