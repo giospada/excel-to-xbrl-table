@@ -104,6 +104,7 @@ function applayToSelect(apply){
             apply(row[j])
         }
     }
+    drawTable()
 }
 
 function parseArray() {
