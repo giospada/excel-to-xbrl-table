@@ -167,7 +167,7 @@ function remAttr(ele,map){
 function addBorder() {
     const ele =$('table');
     if(ele[0]['border']=='')
-        addAttr(ele,{'border':'1','cellspacing': '0'});
+        addAttr(ele,{'border':'0','cellspacing': '0'});
     else
         remAttr(ele,['border','cellspacing']);
 }
@@ -197,7 +197,7 @@ function delWrappingEle(ele){
 }
 function setLayout(){
     $('table')[0]['border']='';
-    addBorder()
+    //addBorder()
     const btable=$('tbody')[0].children;
     const lastRow=btable.length;
     setSelect({shiftKey:false},0,0)
