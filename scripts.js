@@ -196,7 +196,8 @@ function delWrappingEle(ele){
     return ele.innerHTML;
 }
 function setLayout(){
-    $('table')[0]['border']='';
+    $('table')[0].removeAttr('border');
+    
     //addBorder()
     const btable=$('tbody')[0].children;
     const lastRow=btable.length;
