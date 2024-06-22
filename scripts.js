@@ -45,7 +45,7 @@ function createTable() {
     });
     return `<tr>${rowParse.join('')}</tr>`
   })
-  return `<table>${table.join('')}</table>`;
+  return `<table width="100%">${table.join('')}</table>`;
 }
 
 function arraysEqual(a, b) {
@@ -185,7 +185,6 @@ function copyClipboard() {
 function addWrappingEle(ele,wrap){
     const text=delWrappingEle(ele)
     ele.innerHTML=`<${wrap}>${text}</${wrap}>`
-
 }
 function delWrappingEle(ele){
     if(ele.children.length>0){
@@ -195,10 +194,18 @@ function delWrappingEle(ele){
     }
     return ele.innerHTML;
 }
+
+
+function mergeCols(ele){
+    const row=ele.parentElement;
+    const numberOfCols=row.children.length;
+    for(let i=0;i<numberOfCols-1;i++){
+        row.children[1].remove();
+    }
+    ele.setAttribute('colspan',numberOfCols);
+}
+
 function setLayout(){
-    $('table')[0].removeAttr('border');
-    
-    //addBorder()
     const btable=$('tbody')[0].children;
     const lastRow=btable.length;
     setSelect({shiftKey:false},0,0)
@@ -228,6 +235,7 @@ function main() {
   $('#setBg').on('click', ()=>applayToSelect((e)=>e.setAttribute('bgcolor',$('#colorBG').val())));
   $('#setBold').on('click', ()=>applayToSelect((e)=>addWrappingEle(e,'b')));
   $('#setUnFormat').on('click', ()=>applayToSelect((e)=>delWrappingEle(e)));
+  $('#mergeCols').on('click', ()=>applayToSelect((e)=>mergeCols(e)));
   for(let i=1;i<=5;i++){
     $(`#setH${i}`).on('click', ()=>applayToSelect((e)=>addWrappingEle(e,`h${i}`)));
 

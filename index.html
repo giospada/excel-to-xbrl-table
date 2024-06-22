@@ -32,90 +32,105 @@
 
   <div id='secondPage' class="container my-5 ">
     <div class='row'>
+      <div class="mb-2 align-items-center">
+        <button id='setLayout' class='btn btn-primary'>
+          Default Layout
+        </button>
+      </div>
       <div class='col-md-'
         style='height: 50vh; overflow:scroll; border: 2px solid gray; border-radius: 3px; padding: 0.5rem;'>
         <div id='containTable'></div>
       </div>
       <div class='col-md-6'>
-        <div class='d-flex justify-content-center align-items-center flex-column my-5'>
-          <details class='mb-5'>
-            <summary>Help</summary>
-            Per selezionare una cella semplicemente bisogna clickarla, per selezionare più celle bisogna premere SHIFT.
-            Template sono azioni che vengono eseguite su tutta la tabella.
-            Multiple select sono azioni che vengono fatte su una selezione.
-          </details>
-          <h4>Copy</h4>
-          <button id='copy' class='btn btn-primary'>Copy</button>
+        <div class='d-flex justify-content-center align-items-center flex-column flex-md-row my-5'>
 
-          <details class='mb-5'>
-            <summary> Se non funziona ecco il html
-            </summary>
-            <textarea id='copyarea'></textarea>
-          </details>
+          <div class="flex-column">
+            <details class='mb-5'>
+              <summary>Help</summary>
+              Per selezionare una cella semplicemente bisogna clickarla, per selezionare più celle bisogna premere
+              SHIFT.
+              Template sono azioni che vengono eseguite su tutta la tabella.
+              Multiple select sono azioni che vengono fatte su una selezione.
+            </details>
+            <h4>Copy</h4>
+            <button id='copy' class='btn btn-primary'>Copy</button>
 
-          <h4>Template</h4>
-          <div class='d-flex gap-1 mb-5'>
-            <button id='setBorder' class='btn btn-primary'>
-              Border
-            </button>
-            <button id='setLayout' class='btn btn-primary'>
-              Default Layout
-            </button>
-          </div>
-
-          <h4>Multiple Select</h4>
-          <div class='d-flex gap-2 mb-2'>
-            <div class='btn-group'>
-              <button id='setLeft' class='btn btn-primary'>
-                Left
+            <details class='mb-5'>
+              <summary> Se non funziona ecco il html
+              </summary>
+              <textarea id='copyarea'></textarea>
+            </details>
+            <h4>Unisci colonne</h4>
+            <div class='d-flex gap-1 mb-5'>
+              <button id='mergeCols' class='btn btn-primary'>
+                Unisci tutte le colonne di una riga
               </button>
-              <button id='setCenter' class='btn btn-primary'>
-                Center
-              </button>
-              <button id='setRight' class='btn btn-primary'>
-                Right
+            </div>
+            <h4>Template</h4>
+            <div class='d-flex gap-1 mb-5'>
+              <button id='setBorder' class='btn btn-primary'>
+                Border
               </button>
             </div>
           </div>
-          <button id='setBold' class='btn btn-primary'>
-            Bold
-          </button>
-          <div class='d-flex gap-1 my-2'>
-            <button class='btn btn-primary' id='setBg'>
-              Color
+
+          <div class='flex-column'>
+            <h4>Multiple Select</h4>
+            <div class='d-flex gap-2 mb-2'>
+              <div class='btn-group'>
+                <button id='setLeft' class='btn btn-primary'>
+                  Left
+                </button>
+                <button id='setCenter' class='btn btn-primary'>
+                  Center
+                </button>
+                <button id='setRight' class='btn btn-primary'>
+                  Right
+                </button>
+              </div>
+            </div>
+            <button id='setBold' class='btn btn-primary'>
+              Bold
             </button>
-            <input class="form-control" style='width: 4rem; height: auto;' type='color' id='colorBG' value='#cadff0' />
-          </div>
-          <div class='d-flex gap-1 my-2'>
-            <div class='btn-group'>
-              <button id='setH5' class='btn btn-primary'>
-                H5
+            <div class='d-flex gap-1 my-2'>
+              <button class='btn btn-primary' id='setBg'>
+                Color
               </button>
-              <button id='setH4' class='btn btn-primary'>
-                H4
-              </button>
-              <button id='setH3' class='btn btn-primary'>
-                H3
-              </button>
-              <button id='setH2' class='btn btn-primary'>
-                H2
-              </button>
-              <button id='setH1' class='btn btn-primary'>
-                H1
+              <input class="form-control" style='width: 4rem; height: auto;' type='color' id='colorBG'
+                value='#cadff0' />
+            </div>
+            <div class='d-flex gap-1 my-2'>
+              <div class='btn-group'>
+                <button id='setH5' class='btn btn-primary'>
+                  H5
+                </button>
+                <button id='setH4' class='btn btn-primary'>
+                  H4
+                </button>
+                <button id='setH3' class='btn btn-primary'>
+                  H3
+                </button>
+                <button id='setH2' class='btn btn-primary'>
+                  H2
+                </button>
+                <button id='setH1' class='btn btn-primary'>
+                  H1
+                </button>
+              </div>
+              <button id='setUnFormat' class='btn btn-primary'>
+                UnFormat
               </button>
             </div>
-            <button id='setUnFormat' class='btn btn-primary'>
-              UnFormat
-            </button>
+            <div>
+              <input class="form-control" class='' type="number" id="widthinp">
+              <button class='btn btn-primary' type="button" id="widthbtn" name="button">larghezza</button>
+            </div>
+            <div>
+              <input class="form-control" type="number" id="heightinp" onchange="">
+              <button class='btn btn-primary' type="button" id="heightbtn" name="button">altezza</button>
+            </div>
           </div>
-          <div>
-            <input class="form-control" class='' type="number" id="widthinp">
-            <button class='btn btn-primary' type="button" id="widthbtn" name="button">larghezza</button>
-          </div>
-          <div>
-            <input class="form-control" type="number" id="heightinp" onchange="">
-            <button class='btn btn-primary' type="button" id="heightbtn" name="button">altezza</button>
-          </div>
+
         </div>
       </div>
     </div>
