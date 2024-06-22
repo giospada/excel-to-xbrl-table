@@ -137,6 +137,7 @@ function pageTwo() {
     $('#secondPage').show();
     const table = createTable()
     drawTable(table);
+    setLayout()
 }
 
 
@@ -224,6 +225,13 @@ function setLayout(){
 }
 
 
+function reset(){
+    drawTable(table);
+    setLayout()
+}
+
+
+
 function main() {
   $('#previusPage').on('click', pageOne);
   $('#nextPage').on('click', pageTwo);
@@ -232,6 +240,7 @@ function main() {
   $('#setRight').on('click', ()=>applayToSelect((e)=>e.setAttribute('align','right')));
   $('#setCenter').on('click', ()=>applayToSelect((e)=>e.setAttribute('align','center')));
   $('#setLeft').on('click', ()=>applayToSelect((e)=>e.setAttribute('align','left')));
+  $('#reset').on('click', reset);
   $('#setBg').on('click', ()=>applayToSelect((e)=>e.setAttribute('bgcolor',$('#colorBG').val())));
   $('#setBold').on('click', ()=>applayToSelect((e)=>addWrappingEle(e,'b')));
   $('#setUnFormat').on('click', ()=>applayToSelect((e)=>delWrappingEle(e)));
